@@ -17,18 +17,18 @@ export const HW3 = () => {
   ]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setCurrentText(currentText)// setCurrentText(ЧЕГО-ТО НЕ ХВАТАЕТ);
+      setCurrentText(event.currentTarget.value)// setCurrentText(ЧЕГО-ТО НЕ ХВАТАЕТ);
   };
 
   const handleSave = () => {
-      setTexts(texts)// ЗАСЕТАТЬ БЫ ТЕКСТ В texts И НЕ ПОТЕРЯТЬ НАПУТСТВИЕ ИЗ ПРОШЛОГО ВЕКА)
+      setTexts([...texts, currentText])// ЗАСЕТАТЬ БЫ ТЕКСТ В texts И НЕ ПОТЕРЯТЬ НАПУТСТВИЕ ИЗ ПРОШЛОГО ВЕКА)
       setCurrentText('')// А ЗАТЕМ УБРАТЬ ЗА СОБОЙ В currentText
   };
 
   return (
     <div id={'hw03'}>
       {currentText ? (
-        <h1 id={'hw03-text'}>{currentText}ЗДЕСЬ ХОТЕЛОСЬ БЫ УВИДЕТЬ ВВОДИМЫЙ ТЕКСТ</h1>
+        <h1 id={'hw03-text'}>{currentText}</h1>
       ) : (
         <h1 id={'hw03-default-text'}>Здесь появится новое дело</h1> // ничего не меняем, здесь все норм
       )}
